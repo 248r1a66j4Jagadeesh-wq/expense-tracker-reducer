@@ -1,3 +1,5 @@
+import "../styles/ExpenseForm.css";
+
 function ExpenseForm() {
   return (
     <section className="expense-form">

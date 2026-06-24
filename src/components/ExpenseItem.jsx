@@ -1,3 +1,5 @@
+import "../styles/ExpenseItem.css";
+
 function ExpenseItem() {
   return (
     <div className="expense-item">
@@ -6,9 +8,7 @@ function ExpenseItem() {
 
       <span>₹120</span>
 
-      <button>
-        Delete
-      </button>
+      <button>Delete</button>
 
     </div>
   );

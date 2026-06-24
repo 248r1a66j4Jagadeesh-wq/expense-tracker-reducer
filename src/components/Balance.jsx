@@ -1,3 +1,5 @@
+import "../styles/Balance.css";
+
 function Balance() {
   return (
     <section className="balance">
