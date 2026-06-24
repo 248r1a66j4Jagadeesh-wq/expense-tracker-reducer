@@ -1,7 +1,15 @@
 function ExpenseItem() {
   return (
-    <div>
-      Expense Item
+    <div className="expense-item">
+
+      <span>Coffee</span>
+
+      <span>₹120</span>
+
+      <button>
+        Delete
+      </button>
+
     </div>
   );
 }

@@ -1,8 +1,10 @@
 function Balance() {
   return (
-    <div>
-      Balance
-    </div>
+    <section className="balance">
+      <h2>Current Balance</h2>
+
+      <h1>₹0</h1>
+    </section>
   );
 }
 

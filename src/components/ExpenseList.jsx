@@ -1,8 +1,16 @@
+import ExpenseItem from "./ExpenseItem";
+
 function ExpenseList() {
   return (
-    <div>
-      Expense List
-    </div>
+    <section className="expense-list">
+
+      <h2>Expenses</h2>
+
+      <ExpenseItem />
+      <ExpenseItem />
+      <ExpenseItem />
+
+    </section>
   );
 }
 
