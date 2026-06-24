@@ -1,68 +1,25 @@
-import { useReducer, useEffect } from "react";
-
 import Header from "./components/Header";
 import Balance from "./components/Balance";
 import ExpenseForm from "./components/ExpenseForm";
 import ExpenseList from "./components/ExpenseList";
 
-import expenseReducer from "./reducer/expenseReducer";
+import ExpenseProvider from "./context/ExpenseProvider";
 
 import "./App.css";
 
-const loadExpenses = () => {
-  const savedExpenses = localStorage.getItem("expenses");
-
-  if (savedExpenses) {
-    return JSON.parse(savedExpenses);
-  }
-
-  return [
-    {
-      id: 1,
-      title: "Coffee",
-      amount: 120,
-    },
-    {
-      id: 2,
-      title: "Book",
-      amount: 450,
-    },
-    {
-      id: 3,
-      title: "Movie",
-      amount: 300,
-    },
-  ];
-};
-
-const initialState = loadExpenses();
-
 function App() {
-  const [expenses, dispatch] = useReducer(
-    expenseReducer,
-    initialState
-  );
-
-  useEffect(() => {
-    localStorage.setItem(
-      "expenses",
-      JSON.stringify(expenses)
-    );
-  }, [expenses]);
-
   return (
-    <div className="app">
-      <Header />
+    <ExpenseProvider>
+      <div className="app">
+        <Header />
 
-      <Balance expenses={expenses} />
+        <Balance />
 
-      <ExpenseForm dispatch={dispatch} />
+        <ExpenseForm />
 
-      <ExpenseList
-        expenses={expenses}
-        dispatch={dispatch}
-      />
-    </div>
+        <ExpenseList />
+      </div>
+    </ExpenseProvider>
   );
 }
 

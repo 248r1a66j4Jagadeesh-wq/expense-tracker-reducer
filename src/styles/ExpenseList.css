@@ -1,3 +1,9 @@
 .expense-list h2{
     margin-bottom:15px;
 }
+.empty-message{
+    text-align:center;
+    color:#777;
+    padding:20px;
+    font-style:italic;
+}

@@ -1,20 +1,31 @@
+import { useContext } from "react";
+import ExpenseContext from "../context/ExpenseContext";
+
 import "../styles/ExpenseList.css";
 import ExpenseItem from "./ExpenseItem";
 
-function ExpenseList({ expenses, dispatch }) {
-  return (
-    <section className="expense-list">
-      <h2>Expenses</h2>
+function ExpenseList() {
+  const { expenses, dispatch } = useContext(ExpenseContext);
+return (
+  <section className="expense-list">
+    <h2>Expenses</h2>
 
-      {expenses.map((expense) => (
+    {expenses.length === 0 ? (
+      <p className="empty-message">
+        No expenses added yet.
+      </p>
+    ) : (
+      expenses.map((expense) => (
         <ExpenseItem
           key={expense.id}
           expense={expense}
           dispatch={dispatch}
         />
-      ))}
-    </section>
-  );
+      ))
+    )}
+  </section>
+);
+  
 }
 
 export default ExpenseList;

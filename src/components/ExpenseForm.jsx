@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import ExpenseContext from "../context/ExpenseContext";
 import "../styles/ExpenseForm.css";
 
-function ExpenseForm({ dispatch }) {
+function ExpenseForm() {
+  const { dispatch } = useContext(ExpenseContext);
+
   const [title, setTitle] = useState("");
   const [amount, setAmount] = useState("");
 
