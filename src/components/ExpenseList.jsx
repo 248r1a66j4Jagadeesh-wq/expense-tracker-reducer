@@ -1,15 +1,18 @@
 import "../styles/ExpenseList.css";
 import ExpenseItem from "./ExpenseItem";
 
-function ExpenseList() {
+function ExpenseList({ expenses }) {
   return (
     <section className="expense-list">
 
       <h2>Expenses</h2>
 
-      <ExpenseItem />
-      <ExpenseItem />
-      <ExpenseItem />
+      {expenses.map((expense) => (
+        <ExpenseItem
+          key={expense.id}
+          expense={expense}
+        />
+      ))}
 
     </section>
   );

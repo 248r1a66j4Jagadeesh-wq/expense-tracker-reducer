@@ -1,5 +1,8 @@
 const expenseReducer = (state, action) => {
-  return state;
+  switch (action.type) {
+    default:
+      return state;
+  }
 };
 
 export default expenseReducer;

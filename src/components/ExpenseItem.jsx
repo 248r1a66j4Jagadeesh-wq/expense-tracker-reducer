@@ -1,12 +1,12 @@
 import "../styles/ExpenseItem.css";
 
-function ExpenseItem() {
+function ExpenseItem({ expense }) {
   return (
     <div className="expense-item">
 
-      <span>Coffee</span>
+      <span>{expense.title}</span>
 
-      <span>₹120</span>
+      <span>₹{expense.amount}</span>
 
       <button>Delete</button>
 
