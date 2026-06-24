@@ -33,17 +33,19 @@ function App() {
     initialState
   );
 
-  return (
-    <div className="app">
-      <Header />
+return (
+  <div className="app">
+    <Header />
 
-      <Balance expenses={expenses} />
+    <Balance expenses={expenses} />
 
-      <ExpenseForm />
+    <ExpenseForm />
 
-      <ExpenseList expenses={expenses} />
-    </div>
-  );
-}
+<ExpenseList
+  expenses={expenses}
+  dispatch={dispatch}
+/>
+  </div>
+);}
 
 export default App;

@@ -1,29 +1,51 @@
+import { useState } from "react";
 import "../styles/ExpenseForm.css";
 
-function ExpenseForm() {
+function ExpenseForm({ dispatch }) {
+  const [title, setTitle] = useState("");
+  const [amount, setAmount] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (title.trim() === "" || amount === "") return;
+
+    dispatch({
+      type: "ADD_EXPENSE",
+      payload: {
+        id: Date.now(),
+        title: title,
+        amount: Number(amount),
+      },
+    });
+
+    setTitle("");
+    setAmount("");
+  };
+
   return (
     <section className="expense-form">
-
       <h2>Add Expense</h2>
 
-      <form>
-
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder="Expense Name"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
         />
 
         <input
           type="number"
           placeholder="Amount"
+          value={amount}
+          onChange={(e) => setAmount(e.target.value)}
         />
 
-        <button>
+        <button type="submit">
           Add Expense
         </button>
-
       </form>
-
     </section>
   );
 }
